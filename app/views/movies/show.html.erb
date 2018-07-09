@@ -6,13 +6,12 @@
 </p>
 
 <p>
-  <strong>Desctiption:</strong>
-  <%= @movie.desctiption %>
+  <strong>Description:</strong>
+  <%= @movie.description %>
 </p>
 
 <p>
-  <strong>Picture:</strong>
-  <%= @movie.picture %>
+  <%= image_tag @movie.picture if @movie.picture.attached? %>
 </p>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |

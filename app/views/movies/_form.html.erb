@@ -17,13 +17,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :desctiption %>
-    <%= form.text_area :desctiption %>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
   </div>
 
   <div class="field">
     <%= form.label :picture %>
-    <%= form.text_field :picture %>
+    <%= form.file_field :picture %>
+  </div>
+
+  <div class="field">
+    <%= form.label :release_year %>
+    <%= form.text_field :release_year %>
   </div>
 
   <div class="actions">

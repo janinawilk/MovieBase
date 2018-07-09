@@ -2,10 +2,10 @@
 
 one:
   title: MyString
-  desctiption: MyText
+  description: MyText
   picture: MyString
 
 two:
   title: MyString
-  desctiption: MyText
+  description: MyText
   picture: MyString

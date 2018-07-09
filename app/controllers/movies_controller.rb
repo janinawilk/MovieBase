@@ -24,16 +24,10 @@ class MoviesController < ApplicationController
   # POST /movies
   # POST /movies.json
   def create
-    @movie = Movie.new(movie_params)
-
-    respond_to do |format|
-      if @movie.save
-        format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
-        format.json { render :show, status: :created, location: @movie }
-      else
-        format.html { render :new }
-        format.json { render json: @movie.errors, status: :unprocessable_entity }
-      end
+    if new_movie.save
+      redirect_to movies_path
+    else
+      redirect_to new_movie_path
     end
   end
 
@@ -43,10 +37,8 @@ class MoviesController < ApplicationController
     respond_to do |format|
       if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
-        format.json { render :show, status: :ok, location: @movie }
       else
         format.html { render :edit }
-        format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +61,10 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:title, :desctiption, :picture)
+      params.require(:movie).permit(:title, :description, :picture, :release_year)
+    end
+
+    def new_movie
+      @movie = Movie.new(movie_params)
     end
 end

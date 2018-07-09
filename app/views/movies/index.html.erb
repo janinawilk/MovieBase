@@ -1,31 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Movies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Release Year</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.description %></td>
-        <td><%= movie.release_year %></td>
-        <td><%= movie.picture %></td>
-        <td><%= link_to 'Show', movie %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <div class="container is-fluid">
+    <div class="columns is-multiline">
+      <% @movies.each do |movie| %>
+        <div class="column is-one-fifth"
+          <figure>
+            <%= link_to movie_path(movie) do %>
+            <%= image_tag movie.picture, :size => "200x120" %>
+            <% end %>
+            <figcaption> <%= movie.title %> </figcaption>
+          </figure>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </table>
 
-<br>
+<br><br><br>
 
 <%= link_to 'New Movie', new_movie_path %>
