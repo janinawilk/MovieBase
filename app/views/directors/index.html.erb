@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+  <div class="container is-fluid">
+    <div class="columns is-multiline">
+      <% @directors.each do |director| %>
+        <div class="column is-one-fifth"
+          <figure>
+            <%= link_to director_path(director) do %>
+            <%= image_tag director.picture, :size => "200x120" %>
+            <% end %>
+            <figcaption> <%= director.last_name %> </figcaption>
+          </figure>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</table>
+
+<br><br><br>
+
+<%= link_to 'New director', new_director_path %>

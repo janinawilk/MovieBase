@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h3>
+  <strong><%= @director.first_name %></strong>
+  <strong><%= @director.last_name %></strong>
+</h3>
+
+<p>
+  Date of birth:
+  <%= @director.birthdate %>
+</p>
+
+
+
+<p>
+  <%= image_tag @director.picture, :size => "200x120" if @director.picture.attached? %>
+</p>
+
+<p>
+  <%= @director.bio %>
+</p>
+
+<%= link_to 'Edit', edit_director_path(@director) %> |
+<%= link_to 'Back', directors_path %>

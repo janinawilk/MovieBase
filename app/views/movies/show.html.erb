@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <%= image_tag @movie.picture if @movie.picture.attached? %>
+  <%= image_tag @movie.picture, :size => "200x120" if @movie.picture.attached? %>
 </p>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
