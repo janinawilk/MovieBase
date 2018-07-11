@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-  <div class="container is-fluid">
-    <div class="columns is-multiline">
-      <% @movies.each do |movie| %>
-        <div class="column is-one-fifth"
-          <figure>
-            <%= link_to movie_path(movie) do %>
-              <%= poster(movie) %>
-            <% end %>
-            <figcaption> <%= link_to movie.title, movie_path(movie) %> </figcaption>
-          </figure>
+<div class="card-deck d-flex flex-row justify-content-center flex-wrap">
+  <% @movies.each do |movie| %>
+    <div class='card' style="width: 200px;">
+      <%= link_to movie_path(movie) do %>
+        <%= image_tag movie.picture, class: 'card-img-top img-thumbnail' if movie.picture.attached?%>
+        <div class='card-body'>
+          <p class='card-text'>
+            <%= movie.title %>
+          </p>
         </div>
       <% end %>
     </div>
-  </div>
-</table>
+  <% end %>
+</div>
 
-<br><br><br>
+<br>
+<%= will_paginate @movies %>
 
-<%= link_to 'New Movie', new_movie_path %>
+<%= link_to 'New Movie', new_movie_path, class: 'btn btn-primary' %>

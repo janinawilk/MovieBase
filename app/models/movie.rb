@@ -2,6 +2,7 @@ class Movie < ApplicationRecord
   has_one_attached :picture
   has_many :roles
   has_many :people, through: :roles
+  validates :title, presence: true
 
   include FriendlyId
   friendly_id :title, use: [:slugged, :history]

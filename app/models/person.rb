@@ -2,6 +2,9 @@ class Person < ApplicationRecord
   has_one_attached :picture
   has_many :roles
   has_many :movies, through: :roles
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :picture, presence: true
 
   include FriendlyId
   friendly_id :custom_slug, use: [:slugged, :history]
