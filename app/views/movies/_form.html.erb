@@ -31,6 +31,10 @@
     <%= form.text_field :release_year %>
   </div>
 
+  <div class="field">
+    <%= form.select(:directors, Director.all.collect {|d| ["#{d.first_name} #{d.last_name}", d.id] }) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

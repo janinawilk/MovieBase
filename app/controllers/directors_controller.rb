@@ -1,4 +1,5 @@
 class DirectorsController < ApplicationController
+  before_action :set_director, only: [:show, :edit, :update, :destroy]
 
   def index
     @directors = Director.all
@@ -9,7 +10,6 @@ class DirectorsController < ApplicationController
   end
 
   def show
-    set_director
   end
 
   def create
@@ -17,6 +17,19 @@ class DirectorsController < ApplicationController
       redirect_to directors_path
     else
       redirect_to new_director_path
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @director.update(director_params)
+        format.html { redirect_to @director, notice: 'Successfully updated.' }
+      else
+        format.html { render :edit }
+      end
     end
   end
 

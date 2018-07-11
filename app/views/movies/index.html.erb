@@ -6,9 +6,9 @@
         <div class="column is-one-fifth"
           <figure>
             <%= link_to movie_path(movie) do %>
-            <%= image_tag movie.picture, :size => "200x120" %>
+              <%= poster(movie) %>
             <% end %>
-            <figcaption> <%= movie.title %> </figcaption>
+            <figcaption> <%= link_to movie.title, movie_path(movie) %> </figcaption>
           </figure>
         </div>
       <% end %>

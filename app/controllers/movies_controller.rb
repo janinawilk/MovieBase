@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @directors = @movie.directors
   end
 
   def new
@@ -30,7 +31,7 @@ class MoviesController < ApplicationController
   def update
     respond_to do |format|
       if @movie.update(movie_params)
-        format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
+        format.html { redirect_to @movie, notice: 'Successfully updated.' }
       else
         format.html { render :edit }
       end

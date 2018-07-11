@@ -6,9 +6,9 @@
         <div class="column is-one-fifth"
           <figure>
             <%= link_to director_path(director) do %>
-            <%= image_tag director.picture, :size => "200x120" %>
+            <%= portrait(director) %>
             <% end %>
-            <figcaption> <%= director.last_name %> </figcaption>
+            <figcaption> <%= link_to director.last_name, director_path(director) %> </figcaption>
           </figure>
         </div>
       <% end %>
