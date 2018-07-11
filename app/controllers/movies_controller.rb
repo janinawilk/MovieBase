@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @directors = @movie.directors
+    @people = @movie.people
   end
 
   def new

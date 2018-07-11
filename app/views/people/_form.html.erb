@@ -1,10 +1,10 @@
-<%= form_with(model: director, local: true) do |form| %>
-  <% if director.errors.any? %>
+<%= form_with(model: person, local: true) do |form| %>
+  <% if person.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(director.errors.count, "error") %> prohibited this director from being saved:</h2>
+      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
 
       <ul>
-      <% director.errors.full_messages.each do |message| %>
+      <% person.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

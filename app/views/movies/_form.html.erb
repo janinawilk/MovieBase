@@ -32,7 +32,7 @@
   </div>
 
   <div class="field">
-    <%= form.select(:directors, Director.all.collect {|d| ["#{d.first_name} #{d.last_name}", d.id] }) %>
+    <%= form.select(:persons, Person.all.collect {|d| ["#{d.first_name} #{d.last_name}", d.id] }) %>
   </div>
 
   <div class="actions">
