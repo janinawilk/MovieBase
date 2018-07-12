@@ -1,9 +1,11 @@
 module PeopleHelper
   def portrait(person)
-    if person.picture.attached?
-      image_tag person.picture, :size => "200x120"
-    else
-      image_tag 'MovieBase Posters/question-mark.png', :size => "500x120"
+    link_to person_path(person) do
+      if person.picture.attached?
+        image_tag person.picture, class: 'card-img-top img-thumbnail'
+      else
+        image_tag 'MovieBase Posters/question-mark.png', class: 'card-img-top img-thumbnail'
+      end
     end
   end
 end

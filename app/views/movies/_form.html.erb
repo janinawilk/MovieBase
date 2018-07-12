@@ -1,8 +1,9 @@
 <%= simple_form_for @movie do |f| %>
-  <%= f.error_notification %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :picture, as: :file %>
   <%= f.input :release_year %>
+  <%= f.association :people %>
+  <%= f.association :roles %>
   <%= f.button :submit %>
 <% end %>

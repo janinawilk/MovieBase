@@ -1,21 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-  <div class="container is-fluid">
-    <div class="columns is-multiline">
-      <% @people.each do |person| %>
-        <div class="column is-one-fifth"
-          <figure>
-            <%= link_to person_path(person) do %>
-            <%= portrait(person) %>
-            <% end %>
-            <figcaption> <%= link_to person.last_name, person_path(person) %> </figcaption>
-          </figure>
-        </div>
-      <% end %>
+<div class="card-deck d-flex flex-row justify-content-center flex-wrap">
+  <% @people.each do |person| %>
+    <div class='card' style="width: 200px;">
+      <%= portrait(person) %>
+      <div class='card-body'>
+        <p class='card-text'>
+          <%= person.first_name + " " + person.last_name %>
+        </p>
+      </div>
     </div>
-  </div>
-</table>
+  <% end %>
+</div>
 
-<br><br><br>
+<br>
+<%= will_paginate @people %>
 
-<%= link_to 'New person', new_person_path %>
+<%= link_to 'New Person', new_person_path, class: 'btn' %>

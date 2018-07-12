@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index
-    @people = Person.all
+    @people = Person.paginate(page: params[:page], per_page: 6)
   end
 
   def new
@@ -13,10 +13,11 @@ class PeopleController < ApplicationController
   end
 
   def create
-    if new_person.save
-      redirect_to people_path
+    @person = Person.new(person_params)
+    if @person.save
+      redirect_to @person, notice: 'Successfully updated.'
     else
-      redirect_to new_person_path
+      render 'new'
     end
   end
 
@@ -24,12 +25,10 @@ class PeopleController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @person.update(person_params)
-        format.html { redirect_to @person, notice: 'Successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @person.update(person_params)
+      redirect_to @person, notice: 'Successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -43,8 +42,5 @@ class PeopleController < ApplicationController
     params.require(:person).permit(:first_name, :last_name, :bio, :picture, :birthdate)
   end
 
-  def new_person
-    @person = Person.new(person_params)
-  end
 
 end

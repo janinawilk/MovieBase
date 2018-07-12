@@ -3,14 +3,12 @@
 <div class="card-deck d-flex flex-row justify-content-center flex-wrap">
   <% @movies.each do |movie| %>
     <div class='card' style="width: 200px;">
-      <%= link_to movie_path(movie) do %>
-        <%= image_tag movie.picture, class: 'card-img-top img-thumbnail' if movie.picture.attached?%>
-        <div class='card-body'>
-          <p class='card-text'>
-            <%= movie.title %>
-          </p>
-        </div>
-      <% end %>
+      <%= poster(movie) %>
+      <div class='card-body'>
+        <p class='card-text'>
+          <%= movie.title %>
+        </p>
+      </div>
     </div>
   <% end %>
 </div>
@@ -18,4 +16,4 @@
 <br>
 <%= will_paginate @movies %>
 
-<%= link_to 'New Movie', new_movie_path, class: 'btn btn-primary' %>
+<%= link_to 'New Movie', new_movie_path, class: 'btn' %>

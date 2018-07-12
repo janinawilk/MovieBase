@@ -2,11 +2,10 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
-    @movies = Movie.paginate(page: params[:page], per_page: 5)
+    @movies = Movie.paginate(page: params[:page], per_page: 10)
   end
 
   def show
-    @people = @movie.people
   end
 
   def new
@@ -16,50 +15,30 @@ class MoviesController < ApplicationController
   def edit
   end
 
-  # POST /movies
-  # POST /movies.json
   def create
-    if new_movie.save
-      redirect_to movies_path
+    @movie = Movie.new(movie_params)
+    if @movie.save
+      redirect_to @movie, notice: 'Successfully updated.'
     else
-      redirect_to new_movie_path
+      render 'new'
     end
   end
 
-  # PATCH/PUT /movies/1
-  # PATCH/PUT /movies/1.json
   def update
-    respond_to do |format|
-      if @movie.update(movie_params)
-        format.html { redirect_to @movie, notice: 'Successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
-
-  # DELETE /movies/1
-  # DELETE /movies/1.json
-  def destroy
-    @movie.destroy
-    respond_to do |format|
-      format.html { redirect_to movies_url, notice: 'Movie was successfully destroyed.' }
-      format.json { head :no_content }
+    if @movie.update(movie_params)
+      redirect_to @movie, notice: 'Successfully updated.'
+    else
+      render :edit
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_movie
-      @movie = Movie.friendly.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def movie_params
-      params.require(:movie).permit(:title, :description, :picture, :release_year)
-    end
+  def set_movie
+    @movie = Movie.friendly.find(params[:id])
+  end
 
-    def new_movie
-      @movie = Movie.new(movie_params)
-    end
+  def movie_params
+    params.require(:movie).permit(:title, :description, :picture, :release_year)
+  end
 end
