@@ -13,4 +13,7 @@
 </p>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<%= link_to 'Back', movies_path %> |
+<%= link_to @movie, method: :delete, data: {confirm: 'You sure?'}, class: 'button is-danger' do %>
+            Delete
+          <% end %>

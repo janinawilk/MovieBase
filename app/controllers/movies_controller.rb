@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new  
+    @movie = Movie.new
   end
 
   def edit
@@ -30,6 +30,11 @@ class MoviesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @movie.destroy
+    redirect_to movies_path, notice: 'Successfully deleted'
   end
 
   private

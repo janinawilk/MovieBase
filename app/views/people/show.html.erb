@@ -4,11 +4,8 @@
 </h3>
 
 <p>
-  Date of birth:
-  <%= @person.birthdate %>
+  Date of birth: <%= @person.birthdate %>
 </p>
-
-
 
 <p>
   <%= poster(@person) %>
@@ -19,4 +16,7 @@
 </p>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<%= link_to 'Back', people_path %> |
+<%= link_to @person, method: :delete, data: {confirm: 'You sure?'}, class: 'button is-danger' do %>
+  Delete
+<% end %>

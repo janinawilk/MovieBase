@@ -15,7 +15,7 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
     if @person.save
-      redirect_to @person, notice: 'Successfully updated.'
+      redirect_to @person, notice: 'Successfully added.'
     else
       render 'new'
     end
@@ -30,6 +30,11 @@ class PeopleController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @person.destroy
+    redirect_to people_path, notice: 'Successfully deleted'
   end
 
   private
