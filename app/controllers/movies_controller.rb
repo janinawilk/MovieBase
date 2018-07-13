@@ -10,7 +10,6 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    @movie.people.build
   end
 
   def edit
