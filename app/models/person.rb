@@ -2,6 +2,7 @@ class Person < ApplicationRecord
   has_one_attached :picture
   has_many :roles
   has_many :movies, through: :roles
+  accepts_nested_attributes_for :movies, :roles
   validates :first_name, presence: true
   validates :last_name, presence: true
 

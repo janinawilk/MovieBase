@@ -1,9 +1,9 @@
-<%= simple_form_for @movie do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :picture, as: :file %>
-  <%= f.input :release_year %>
-  <%= f.association :people %>
-  <%= f.association :roles %>
-  <%= f.button :submit %>
+<%= simple_form_for @movie do |m| %>
+  <%= m.input :title %>
+  <%= m.input :description %>
+  <%= m.input :picture, as: :file %>
+  <%= m.input :release_year %>
+  <%= m.association :people %>
+  <%= m.association :roles %>
+  <%= m.button :submit %>
 <% end %>

@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @movie.people.build
   end
 
   def edit
@@ -39,6 +40,6 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :description, :picture, :release_year)
+    params.require(:movie).permit(:title, :description, :picture, :release_year, :people_attributes)
   end
 end
