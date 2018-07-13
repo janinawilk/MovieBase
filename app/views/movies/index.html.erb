@@ -1,13 +1,6 @@
 <div class="card-deck d-flex flex-row justify-content-center flex-wrap">
   <% @movies.each do |movie| %>
-    <div class='card' style="width: 200px;">
-      <%= poster(movie) %>
-      <div class='card-body'>
-        <p class='card-text'>
-          <%= movie.title %>
-        </p>
-      </div>
-    </div>
+    <%= render 'shared/card', object: movie %>
   <% end %>
 </div>
 

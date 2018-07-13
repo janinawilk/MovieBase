@@ -11,4 +11,8 @@ class Movie < ApplicationRecord
   def should_generate_new_friendly_id?
     slug.blank? || title_changed?
   end
+
+  def to_s
+    title
+  end
 end
