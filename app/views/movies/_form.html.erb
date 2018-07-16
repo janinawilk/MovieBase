@@ -3,7 +3,14 @@
   <%= m.input :description %>
   <%= m.input :picture, as: :file %>
   <%= m.input :release_year %>
-  <%= m.association :people %>
-  <%= m.association :roles %>
+
+  <h3>Director</h3>
+  <%= m.input :director_ids, collection: Person.all.map { |p| [p.id, p.to_s] },
+      label_method: :second, value_method: :first, multiple: true %>
+
+  <h3>Actors</h3>
+  <%= m.input :actor_ids, collection: Person.all.map { |p| [p.id, p.to_s] },
+      label_method: :second, value_method: :first, multiple: true %>
+
   <%= m.button :submit %>
 <% end %>
