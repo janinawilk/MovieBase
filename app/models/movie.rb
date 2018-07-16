@@ -2,7 +2,12 @@ class Movie < ApplicationRecord
   has_one_attached :picture
   has_many :roles
   has_many :people, through: :roles
-  accepts_nested_attributes_for :people, :roles
+
+  has_many :directors, -> { where(roles: {part: 'director'}) },
+    through: :roles, source: :person
+  has_many :actors, -> { where(roles: {part: 'actor'}) },
+    through: :roles, source: :person
+
   validates :title, presence: true
 
   include FriendlyId

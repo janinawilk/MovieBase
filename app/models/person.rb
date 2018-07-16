@@ -2,7 +2,12 @@ class Person < ApplicationRecord
   has_one_attached :picture
   has_many :roles
   has_many :movies, through: :roles
-  accepts_nested_attributes_for :movies, :roles
+
+ 	has_many :directed_movies, -> { where(roles: {part: 'director'}) },
+  	through: :roles, source: :movie
+	has_many :actored_movies, -> { where(roles: {part: 'actor'}) },
+    through: :roles, source: :movie
+
   validates :first_name, presence: true
   validates :last_name, presence: true
 
