@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_15_070724) do
+ActiveRecord::Schema.define(version: 2018_07_15_074805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,11 +68,13 @@ ActiveRecord::Schema.define(version: 2018_07_15_070724) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.bigint "movies_id"
-    t.bigint "people_id"
+    t.bigint "movie_id"
+    t.bigint "person_id"
     t.integer "part", default: 0
-    t.index ["movies_id"], name: "index_roles_on_movies_id"
-    t.index ["people_id"], name: "index_roles_on_people_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_roles_on_movie_id"
+    t.index ["person_id"], name: "index_roles_on_person_id"
   end
 
   create_table "users", force: :cascade do |t|

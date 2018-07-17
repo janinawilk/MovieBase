@@ -3,6 +3,6 @@
   <%= p.input :last_name %>
   <%= p.input :picture, as: :file %>
   <%= p.input :bio %>
-  <%= p.input :birthdate, as: :date %>
+  <%= p.input :birthdate, as: :date, start_year: Date.today.year - 100 %>
   <%= p.button :submit %>
 <% end %>
