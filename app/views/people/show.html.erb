@@ -15,6 +15,20 @@
   <%= @person.bio %>
 </p>
 
+<h4> Directed movies: </h4>
+<div class="card-deck d-flex flex-row justify-content-center flex-wrap">
+  <% @person.directed_movies.each do |movie| %>
+    <%= render 'shared/card', object: movie %>
+  <% end %>
+</div>
+
+<h4> Starred movies: </h4>
+<div class="card-deck d-flex flex-row justify-content-center flex-wrap">
+  <% @person.actored_movies.each do |movie| %>
+    <%= render 'shared/card', object: movie %>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %> |
 <%= link_to @person, method: :delete, data: {confirm: 'You sure?'}, class: 'button is-danger' do %>
