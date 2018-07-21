@@ -1,7 +1,8 @@
 class Movie < ApplicationRecord
   has_one_attached :picture
   has_many :roles
-  has_many :people, through: :roles
+  # has_many :people, through: :roles
+  has_many :ratings
 
   has_many :directors, -> { where(roles: {part: 'director'}) },
     through: :roles, source: :person
