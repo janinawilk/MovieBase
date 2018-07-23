@@ -15,19 +15,13 @@
   <%= @person.bio %>
 </p>
 
-<h4> Directed movies: </h4>
-<div class="card-deck d-flex flex-row justify-content-center flex-wrap">
-  <% @person.directed_movies.each do |movie| %>
-    <%= render 'shared/card', object: movie %>
-  <% end %>
-</div>
+<h3> Movies <h3>
 
-<h4> Starred movies: </h4>
-<div class="card-deck d-flex flex-row justify-content-center flex-wrap">
-  <% @person.actored_movies.each do |movie| %>
-    <%= render 'shared/card', object: movie %>
-  <% end %>
-</div>
+<% @person.roles.each do |role| %>
+  <%= role.movie.to_s %>
+  <%= poster(role.movie) %>
+  <%= role.part %>
+<% end %>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %> |

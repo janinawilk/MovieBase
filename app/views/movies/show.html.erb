@@ -12,24 +12,19 @@
   <%= poster(@movie) %>
 </p>
 
+<h3> People <h3>
 
+<% @movie.roles.each do |role| %>
+  <%= role.person.to_s %>
+  <%= poster(role.person) %>
+  <%= role.part %>
+<% end %>
 
-<h4> Directors: </h4>
-<div class="card-deck d-flex flex-row justify-content-center flex-wrap">
-  <% @movie.directors.each do |director| %>
-    <%= render 'shared/card', object: director %>
-  <% end %>
-</div>
-
-<h4> Actors: </h4>
-<div class="card-deck d-flex flex-row justify-content-center flex-wrap">
-  <% @movie.actors.each do |actor| %>
-    <%= render 'shared/card', object: actor %>
-  <% end %>
-</div>
+<br>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %> |
+<%= link_to 'Add person to movie', new_role_path(@movie) %> |
 <%= link_to @movie, method: :delete, data: {confirm: 'You sure?'}, class: 'button is-danger' do %>
             Delete
-          <% end %>
+<% end %>

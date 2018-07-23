@@ -1,0 +1,6 @@
+<%= simple_form_for @role do |r| %>
+  <%= r.input :part, collection: ['Director', 'Actor'] %>
+  <%= r.input :movie_id, collection: Movie.all.map { |m| [m.id, m.to_s] }, label_method: :second, value_method: :first %>
+  <%= r.input :person_id, collection: Person.all.map { |p| [p.id, p.to_s] }, label_method: :second, value_method: :first %>
+  <%= r.button :submit %>
+<% end %>
