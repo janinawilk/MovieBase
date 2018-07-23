@@ -12,9 +12,19 @@
   <%= poster(@movie) %>
 </p>
 
+<h3> People <h3>
+
+<% @movie.roles.each do |role| %>
+  <%= role.person.to_s %>
+  <%= poster(role.person) %>
+  <%= role.part %>
+<% end %>
+
+<br>
+
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %> |
-<%= link_to 'Add actor to movie', movies_path %> |
+<%= link_to 'Add person to movie', new_role_path(@movie) %> |
 <%= link_to @movie, method: :delete, data: {confirm: 'You sure?'}, class: 'button is-danger' do %>
             Delete
 <% end %>

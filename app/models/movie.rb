@@ -2,8 +2,6 @@ class Movie < ApplicationRecord
   has_one_attached :picture
   has_many :roles
   has_many :people, through: :roles
-  accepts_nested_attributes_for :people
-  accepts_nested_attributes_for :roles
   validates :title, presence: true
 
   include FriendlyId

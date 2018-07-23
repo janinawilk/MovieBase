@@ -15,6 +15,14 @@
   <%= @person.bio %>
 </p>
 
+<h3> Movies <h3>
+
+<% @person.roles.each do |role| %>
+  <%= role.movie.to_s %>
+  <%= poster(role.movie) %>
+  <%= role.part %>
+<% end %>
+
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %> |
 <%= link_to @person, method: :delete, data: {confirm: 'You sure?'}, class: 'button is-danger' do %>
