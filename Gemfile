@@ -7,6 +7,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'friendly_id', '~> 5.1.0'
+gem 'image_processing', '~> 1.2'
 gem 'jbuilder', '~> 2.5'
 gem 'sprockets-rails', '~> 3.0', '>= 3.0.4'
 gem 'bootstrap'

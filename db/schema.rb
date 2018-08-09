@@ -80,11 +80,7 @@ ActiveRecord::Schema.define(version: 2018_07_23_085145) do
   create_table "roles", force: :cascade do |t|
     t.bigint "movie_id"
     t.bigint "person_id"
-<<<<<<< HEAD
-    t.integer "part", default: 0
-=======
     t.string "part"
->>>>>>> relations
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["movie_id"], name: "index_roles_on_movie_id"
