@@ -17,3 +17,18 @@
 //= require jquery3
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function() {
+
+  $(".google-login").mouseenter(function() {
+      $(".google-login-hover").show();
+      $(".google-login").hide();
+      $(this).hide();
+  });
+
+  $(".google-login-hover").mouseout(function() {
+    $(".google-login").show();
+    $(".google-login-hover").hide();
+    $(this).hide();
+  });
+});
